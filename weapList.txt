@@ -1,0 +1,4 @@
+1000,500,400,99,1
+Hydra common:a,b,c,d,e,f;rare:aa,bb,dd,ee,ff;expansive:aaa,bbb,ddd,eee,fff;gold:z
+Snake aa,bb,dd,ee,ff
+Spectrum aaa,bbb,ddd,eee,fff
