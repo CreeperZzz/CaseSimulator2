@@ -44,7 +44,7 @@ class Sql:
         cursor.execute(f'SELECT tname, wname FROM weapon w,type t WHERE cid = {cid} and w.tid = t.tid;')
         return cursor.fetchall()
 
-    def get_weaplist_qua(self, qid: int, cid: int = 0) -> 'list':
+    def get_qua_weaplist(self, qid: int, cid: int = 0) -> 'list':
         cursor = self.connection.cursor()
         cursor.execute(f'SELECT tname, wname FROM weapon w,type t WHERE cid = {cid} and qid = {qid} and w.tid = t.tid;')
         return cursor.fetchall()

@@ -1,18 +1,17 @@
-# This is a sample Python script.
+import tkinter
+import sys
+import time
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-# import pygame.key
-
-import case
 import tools
 import sqlConnect
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    # pygame.init()
+
+    # top = tkinter.Tk()
+    # top.mainloop()
+    #
+    # sys.exit()
 
     sql = sqlConnect.Sql()
 
@@ -20,22 +19,23 @@ if __name__ == '__main__':
 
     # print(sql.get_weaplist(cid))
     # print(sql.get_rate(cid))
+    count = 0
 
-    while 1:
-        print("Press ENTER to start, Enter q to quit.")
-        k = input()
-        if k.lower() == 'q': #pk.key.get_pressed()[pygame.K_q]:
-            break
-        elif k.lower() == '': #pk.key.get_pressed()[pygame.K_r]:
-            # res = [tools.randItem() for i in range(1000)]
-            # print(res.count('a'), res.count('b'), res.count('c'))
-            quality = tools.rand_qua(sql.get_rate(cid))
-            weap = tools.rand_weap(sql.get_weaplist_qua(quality, cid))
-            # weaplist = sql.get_weaplist_qua(quality, cid)
-            print(weap)
-        else:
-            print("enter again")
-
+    while ++count <= 100:
+        # print("Press ENTER to start, Enter q to quit.")
+        # k = input()
+        # if k.lower() == 'q': #pk.key.get_pressed()[pygame.K_q]:
+        #     break
+        # elif k.lower() == '': #pk.key.get_pressed()[pygame.K_r]:
+        quality = tools.rand_qua(sql.get_rate(cid))
+        weap = tools.rand_weap(sql.get_qua_weaplist(quality, cid))
+        color = tools.get_color(quality)
+        print(f"\033[1;{color}m{weap}\033[0m")
+        fl = tools.rand_float()
+        print(fl, tools.get_float(fl))
+        time.sleep(1)
+        # else:
+        #     print("enter again")
     sql.close()
 
 #     import pygame
